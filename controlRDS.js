@@ -21,10 +21,10 @@ async function controlRDS(identifier) {
 
     // 인스턴스가 중지 상태인 경우 인스턴스 시작
     if (currentState === "stopped") {
-      rds.startDBInstance(params).promise();
+      await rds.startDBInstance(params).promise();
       console.log("RDS 시작");
     } else {
-      rds.stopDBInstance(params).promise();
+      await rds.stopDBInstance(params).promise();
       console.log("RDS 중지");
     }
   } catch (error) {
