@@ -1,11 +1,9 @@
-const controlRDS = require("./controlRDS");
 const controlEC2 = require("./controlEC2");
 
 exports.handler = async (event) => {
-  const { instanceId, identifier } = event;
+  const { instanceId, webhookURL } = event;
   try {
-    await controlEC2(instanceId);
-    await controlRDS(identifier);
+    await controlEC2(instanceId, webhookURL);
 
     return {
       statusCode: 200,
