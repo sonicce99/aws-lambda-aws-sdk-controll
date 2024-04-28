@@ -10,7 +10,7 @@ exports.handler = async (event) => {
       body: "모두 완료되었습니다.",
     };
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Internal Server Error" }),
