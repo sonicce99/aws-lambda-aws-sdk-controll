@@ -5,10 +5,7 @@ async function controlRDS(identifier, webhookURL) {
   const rds = new AWS.RDS();
 
   if (!identifier) {
-    return {
-      statusCode: 401,
-      body: JSON.stringify({ error: "identifier가 존재하지 않습니다." }),
-    };
+    throw new Error("no_identifier");
   }
 
   const params = {

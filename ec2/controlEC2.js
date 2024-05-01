@@ -5,10 +5,7 @@ async function controlEC2(instanceId, webhookURL) {
   const ec2 = new AWS.EC2();
 
   if (!instanceId) {
-    return {
-      statusCode: 401,
-      body: JSON.stringify({ error: "instanceId가 존재하지 않습니다." }),
-    };
+    throw new Error("no_instanceId");
   }
 
   // 인스턴스를 시작하거나 중지하기 위한 명령
